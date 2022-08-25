@@ -1,5 +1,8 @@
 name: Doppler Secrets Upload
 description: Upload a .env file to your Doppler project
+branding:
+  icon: arrow-up-circle
+  color: purple
 inputs:
   project:
     description: Project name
