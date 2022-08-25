@@ -23,6 +23,8 @@ runs:
   using: composite
   steps:
     - uses: dopplerhq/cli-action@v1
+    - name: Upload env file to Doppler
+      shell: bash
       env:
         PROJECT: ${{ inputs.project }}
         DOPPLER_TOKEN: ${{ inputs.token }}
