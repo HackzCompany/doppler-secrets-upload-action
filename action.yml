@@ -1,0 +1,28 @@
+name: Doppler Secrets Upload
+description: Upload a .env file to your Doppler project
+inputs:
+  project:
+    description: Project name
+    required: true
+  token:
+    description: Doppler token
+    required: true
+  config_name:
+    description: Configuration name to point the upload to (dev, stg, prd ...)
+    required: false
+    default: dev
+  env_file:
+    description: The path to your env file
+    required: false
+    default: .env
+
+runs:
+  using: composite
+  steps:
+    - uses: dopplerhq/cli-action@v1
+      env:
+        PROJECT: ${{ inputs.project }}
+        DOPPLER_TOKEN: ${{ inputs.token }}
+        CONFIG_NAME: ${{ inputs.config_name }}
+        ENV_FILE: ${{ inputs.env_file }}
+      run: doppler secrets upload $ENV_FILE --project $PROJECT --config $CONFIG_NAME
