@@ -8,7 +8,7 @@ doppler-sync:
     needs: [install-deps, load-env]
     name: Doppler Sync
     steps:
-      - uses: hackzcompany/doppler-secrets-upload-action@v1
+      - uses: hackzcompany/doppler-secrets-upload-action@v2
         with:
           project: event-api
           token: ${{ secrets.DOPPLER_TOKEN }}
