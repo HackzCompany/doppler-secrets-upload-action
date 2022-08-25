@@ -25,9 +25,4 @@ runs:
     - uses: dopplerhq/cli-action@v1
     - name: Upload env file to Doppler
       shell: bash
-      env:
-        PROJECT: ${{ inputs.project }}
-        DOPPLER_TOKEN: ${{ inputs.token }}
-        CONFIG_NAME: ${{ inputs.config_name }}
-        ENV_FILE: ${{ inputs.env_file }}
-      run: doppler secrets upload $ENV_FILE --project $PROJECT --config $CONFIG_NAME
+      run: doppler secrets upload ${{ inputs.env_file }} --project ${{ inputs.project }} --config ${{ inputs.config_name }} --token ${{ inputs.token }}
